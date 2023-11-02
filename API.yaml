@@ -1,0 +1,86 @@
+openapi: 3.0.3
+info:
+  title: Revision API
+  version: 1.0.0
+servers:
+  - url: 'https://revision.com'
+    description:  This is the description of the cloud
+  - url : 'https://localhost'
+paths:
+  /test:
+    get:
+      summary: Get all books
+      description: Return all book ordered
+      operationId: getBooks
+      parameters:
+        - in : query
+          name: bookName
+          description: Filter the return books by the given name
+          required: false
+          schema:
+            type: string
+      responses:
+         200 :
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                properties:
+                  id:
+                    type: string
+                  bookName:
+                    type: string
+    put:
+      summary: the created of the update books
+      operationId: update books
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  bookName:
+                    type: string
+      responses:
+          200:
+            description: OK
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Book'
+                  properties:
+                    id:
+                      type: string
+                    bookName:
+                      type: string
+                    author:
+                      type: string
+components:
+  schemas:
+    Book:
+      type: object
+      properties:
+        id:
+          type: string
+        code:
+          type: string
+          format: BOOK001
+        bookName:
+          type: string
+        releaseDate:
+          type: string
+          format: date
+
+    Topic:
+       type: string
+       enum:
+          - ROMANCE
+          - COMEDY
+
