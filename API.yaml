@@ -20,7 +20,7 @@ paths:
           schema:
             type: string
       responses:
-         200 :
+        200 :
           description: OK
           content:
             application/json:
@@ -47,21 +47,21 @@ paths:
                   bookName:
                     type: string
       responses:
-          200:
-            description: OK
-            content:
-              application/json:
-                schema:
-                  type: array
-                  items:
-                    $ref: '#/components/schemas/Book'
-                  properties:
-                    id:
-                      type: string
-                    bookName:
-                      type: string
-                    author:
-                      type: string
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+                properties:
+                  id:
+                    type: string
+                  bookName:
+                    type: string
+                  author:
+                    type: string
 components:
   schemas:
     Book:
@@ -79,8 +79,9 @@ components:
           format: date
 
     Topic:
-       type: string
-       enum:
-          - ROMANCE
-          - COMEDY
+      type: string
+      enum:
+        - ROMANCE
+        - COMEDY
+
 
